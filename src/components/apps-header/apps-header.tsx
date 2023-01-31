@@ -11,6 +11,7 @@ import * as OffcanvasUtils from "ojs/ojoffcanvas";
 import "ojs/ojtoolbar";
 import "ojs/ojmenu";
 import "ojs/ojbutton";
+import { AppsProperties } from "tools-model/loader";
 /**
  * 
  * @ojmetadata displayName "A user friendly, translatable name of the component"
@@ -18,7 +19,7 @@ import "ojs/ojbutton";
 */
 
 type Props = Readonly<{
-  appName: string;
+  appsProperties: AppsProperties;
   userLogin: string;
 }>;
 
@@ -72,11 +73,13 @@ render(props: Props): ComponentChild {
     return (
       <header role="banner" class="oj-web-applayout-header">
       <div class="oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center">
+      {(props.appsProperties.userProperties.status) &&
         <div class="oj-flex-bar-start">
           <oj-button id="drawerToggleButton" onojAction={_toggleDrawer} class="oj-button-lg"  chroming="borderless" display="icons">
             <span slot="startIcon" class="oj-web-applayout-offcanvas-icon"></span>
           </oj-button>
         </div>
+      }
         <div class="oj-flex-bar-middle oj-sm-align-items-baseline">
           <span
             role="img"
@@ -86,7 +89,7 @@ render(props: Props): ComponentChild {
           <h1
             class="oj-sm-only-hide oj-web-applayout-header-title"
             title="Application Name">
-            {this.props.appName}
+            {this.props.appsProperties.applicationName}
           </h1>
         </div>
         <div class="oj-flex-bar-end">

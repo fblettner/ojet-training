@@ -6,6 +6,7 @@ import { AppsFooter } from "apps-footer/loader";
 import { AppsHeader } from "apps-header/loader";
 import { AppsContent } from "apps-content/loader";
 import { AppsMenus } from "apps-menus/loader";
+import { AppsProperties } from "tools-model/loader";
 
 type Props = Readonly<{
   appName?: string;
@@ -14,6 +15,7 @@ type Props = Readonly<{
 
 type State = {
   menuLabel: string;
+  appsProperties: AppsProperties;
 }
 
 @customElement("app-root")
@@ -24,7 +26,8 @@ export class ojetTraining extends Component<ExtendGlobalProps<Props>, State> {
   };
 
   state ={
-    menuLabel: "OJET Training"
+    menuLabel: "OJET Training",
+    appsProperties: new AppsProperties()
   }
 
   render(props: Props, state: State): ComponentChild {
@@ -36,11 +39,15 @@ export class ojetTraining extends Component<ExtendGlobalProps<Props>, State> {
           />
         <div id="appContainer" class="oj-web-applayout-page">
           <AppsHeader
-            appName={this.props.appName} 
+            appsProperties={this.state.appsProperties} 
             userLogin={this.props.userLogin} 
+
           />
           <AppsContent 
             menuLabel={this.state.menuLabel}
+            onAppsPropertiesChanged={this.handleAppsPropertiesPropertiesChanged}
+            appsProperties={this.state.appsProperties}
+
           />
           <AppsFooter 
             copyright="NOMANA-IT @2023"
@@ -54,6 +61,11 @@ export class ojetTraining extends Component<ExtendGlobalProps<Props>, State> {
     this.setState({ 
       menuLabel: newValue.name
     });
+  }
+
+  private handleAppsPropertiesPropertiesChanged = (newValue: AppsProperties) => {
+    console.log(newValue);
+    this.setState({appsProperties: newValue})
   }
 
 }

@@ -41,3 +41,7 @@ html[dir="rtl"] .demo-oracle-icon {
         transform:translate(-25%, -25%) scale(0.5)
     }
 }
+
+.forms-login-container {
+    width: 30rem;
+}  

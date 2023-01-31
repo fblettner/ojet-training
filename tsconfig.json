@@ -44,6 +44,12 @@
       ],
       "apps-menus/*": [
         "./src/components/apps-menus/*"
+      ],
+      "apps-login-page/*": [
+        "./src/components/apps-login-page/*"
+      ],
+      "tools-model/*": [
+        "./src/components/tools-model/*"
       ]
     },
     "declaration": true,
