@@ -89,7 +89,7 @@ private _callLogin =() => {
   userProperties.status = true;
 
   this.props.onAppsPropertiesChanged?.({
-    applicationName: "NOMANA",
+    applicationName: "OJET TRAINING",
     userProperties: userProperties,
     version: "V1.0.0",
     devMode: false

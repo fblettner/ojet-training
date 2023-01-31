@@ -16,7 +16,7 @@ export class AppsProperties {
     devMode: boolean;
   
     constructor () {
-        this.applicationName = "OJET TRAINING / NOMANA-IT";
+        this.applicationName = "NOMANA-IT";
         this.userProperties = new UsersProperties();
         this.version = "V1.0.0";
         this.devMode = false;

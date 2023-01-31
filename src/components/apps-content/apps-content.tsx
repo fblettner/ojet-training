@@ -44,10 +44,8 @@ pageContent = () => {
           {this.props.menuLabel}
         </div>
       );
-
   }
 }
-
 
 render(props: Props): ComponentChild {  
   return (
