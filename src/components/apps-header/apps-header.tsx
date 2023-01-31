@@ -20,7 +20,6 @@ import { AppsProperties } from "tools-model/loader";
 
 type Props = Readonly<{
   appsProperties: AppsProperties;
-  userLogin: string;
 }>;
 
 
@@ -94,8 +93,9 @@ render(props: Props): ComponentChild {
         </div>
         <div class="oj-flex-bar-end">
         <oj-toolbar>
+        {(props.appsProperties.userProperties.status) &&          
           <oj-menu-button id="userMenu" display={getDisplayType()} chroming="borderless">
-            <span>{this.props.userLogin}</span>
+            <span>{this.props.appsProperties.userProperties.id}</span>
             <span slot="endIcon" class={getEndIconClass()}></span>
             <oj-menu id="menu1" slot="menu">
               <oj-option id="pref" value="pref">Preferences</oj-option>
@@ -104,6 +104,7 @@ render(props: Props): ComponentChild {
               <oj-option id="out" value="out">Sign Out</oj-option>
             </oj-menu>
           </oj-menu-button>
+        }
         </oj-toolbar>
         </div>
       </div>

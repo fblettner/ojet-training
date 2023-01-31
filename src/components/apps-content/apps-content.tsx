@@ -19,19 +19,12 @@ type Props = Readonly<{
   appsProperties: AppsProperties;
 }>;
 
-type State = {
-
-}
 
 @customElement("apps-content")
-export class AppsContent extends Component < ExtendGlobalProps < Props >, State> {
+export class AppsContent extends Component < ExtendGlobalProps < Props >> {
   static defaultProps: Partial < Props > = {
 };
 
-state = {
-  appsProperties: new AppsProperties
-
-}
 
 pageContent = () => {
 
@@ -42,7 +35,7 @@ pageContent = () => {
         return (
           <AppsLoginPage
             onAppsPropertiesChanged={this.handleAppsPropertiesChanged}      
-            appsProperties={this.state.appsProperties}
+            appsProperties={this.props.appsProperties}
           />
         );
     case "DEFAULT":
@@ -56,20 +49,13 @@ pageContent = () => {
 }
 
 
-render(props: Props): ComponentChild {
-
-  
+render(props: Props): ComponentChild {  
   return (
     this.pageContent()
   );
   }
 
 private handleAppsPropertiesChanged = (newValue: AppsProperties) => {
-
   this.props.onAppsPropertiesChanged?.(newValue);
-/*  this.setState({
-    appsProperties: newValue
-  });
-*/
 }
 }

@@ -39,9 +39,7 @@ export class ojetTraining extends Component<ExtendGlobalProps<Props>, State> {
           />
         <div id="appContainer" class="oj-web-applayout-page">
           <AppsHeader
-            appsProperties={this.state.appsProperties} 
-            userLogin={this.props.userLogin} 
-
+            appsProperties={this.state.appsProperties}
           />
           <AppsContent 
             menuLabel={this.state.menuLabel}
@@ -64,7 +62,6 @@ export class ojetTraining extends Component<ExtendGlobalProps<Props>, State> {
   }
 
   private handleAppsPropertiesPropertiesChanged = (newValue: AppsProperties) => {
-    console.log(newValue);
     this.setState({appsProperties: newValue})
   }
 
